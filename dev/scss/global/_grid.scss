@@ -30,7 +30,7 @@
       width: 100%;
 
       @include breakpoint($break-md) {
-        width: 48%;
+        width: 50%;
       }
     }
 
@@ -38,7 +38,7 @@
       width: 100%;
 
       @include breakpoint($break-md) {
-        width: 32%;
+        width: 33.33%;
       }
     }
 
@@ -47,7 +47,7 @@
       width: 100%;
 
       @include breakpoint($break-md) {
-        width: 65%;
+        width: 66.66%;
       }
     }
 
@@ -56,11 +56,11 @@
       width: 100%;
 
       @include breakpoint($break-sm) {
-        width: 48%;
+        width: 50%;
       }
 
       @include breakpoint($break-mdlg) {
-        width: 23%;
+        width: 25%;
       }
     }
   }
