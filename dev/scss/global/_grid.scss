@@ -16,6 +16,11 @@
     justify-content: space-between;
   }
 
+  // nested containers no double padding
+  .container {
+    padding: 0;
+  }
+
   .col {
     &-1-1 {
       width: 100%;

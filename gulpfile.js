@@ -24,7 +24,8 @@ const paths = {
     prod: './static/'
   },
   templates: {
-    dev:  './templates/*.html'
+    main:  './templates/*.html',
+    partials:  './templates/*/*.html'
   }
 };
 
@@ -82,7 +83,7 @@ function watchers() {
 
   // for live reload
   livereload.listen();
-  gulp.watch(paths.templates.dev).on('change', function() {
+  gulp.watch([paths.templates.main, paths.templates.partials]).on('change', function() {
     livereload.reload();
   });
 }
