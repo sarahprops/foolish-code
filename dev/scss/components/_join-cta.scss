@@ -1,3 +1,101 @@
 .join-cta {
-	
+	background-color: $white;
+	padding: 1.25rem 0;
+	position: relative;
+	text-align: center;
+
+	&::after {
+		background: $blue repeating-linear-gradient(
+			to right, 
+			$blue, $blue 16.66%,
+			$yellow 16.66%, $yellow 33.33%,
+			$red 33.33%, $red 50%,
+			$green 50%, $green 66.66%,
+			$blue 66.66%, $blue 83.33%,
+			$yellow 83.33%, $yellow 100%
+		);
+	  bottom: 0;
+		content: '';
+		display: block;
+		height: 3px;
+		left: 0;
+		position: absolute;
+		width: 100%;
+	}
+
+	@include breakpoint($break-md) {
+    padding: 2.5rem 0;
+  }
+
+  &--sign-up {
+  	padding: 1rem 0;
+  	width: 100%;
+
+  	p {
+  		margin-bottom: 1rem;
+  	}
+  }
+}
+
+.stat-table {
+	border: 1px solid rgba($border-color, .5);
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto 1rem;
+	max-width: 900px;
+	padding: 1rem 0;
+	width: 100%;
+
+	&--header {
+		.stat-key {
+			font-style: italic;
+			padding: 10px;
+
+			@include breakpoint(max-width $break-md) {
+				width: 50%;
+			}
+		}
+	}
+
+	&--stat {
+		align-items: center;
+  	display: flex;
+  	flex-wrap: wrap;
+
+  	.stat-sa,
+		.stat-sp {
+			padding: 10px;
+			width: 50%;
+
+			h5 {
+				margin-bottom: 0;
+			}
+
+			span {
+				font-size: 2rem;
+				font-weight: bold;
+			}
+
+			@include breakpoint($break-md) {
+				padding: 1rem;
+				width: 100%;
+			}
+		}
+
+		.stat-sa {
+			color: $green;
+		}
+
+		.stat-sp {
+			color: $red;
+		}
+  }
+
+  &--footer {
+  	padding-top: 1.5rem;
+
+  	@include breakpoint($break-md) {
+  		padding-top: 2rem;
+  	}
+  }
 }
