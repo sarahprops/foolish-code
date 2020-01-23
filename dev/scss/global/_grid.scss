@@ -1,0 +1,76 @@
+.container {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: 0 20px;
+  position: relative;
+  width: 100%;
+
+  @include breakpoint($break-md) {
+    padding: 0 40px;
+  }
+
+  &-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .col {
+    &-1-1 {
+      width: 100%;
+    }
+
+    &-1-2 {
+      width: 100%;
+
+      @include breakpoint($break-md) {
+        width: 48%;
+      }
+    }
+
+    &-1-3 {
+      width: 100%;
+
+      @include breakpoint($break-mdlg) {
+        width: 32%;
+      }
+    }
+
+    &-1-3-narrow {
+      width: 100%;
+
+      @include breakpoint($break-mdlg) {
+        width: 28%;
+      }
+    }
+
+    &-2-3 {
+      width: 100%;
+
+      @include breakpoint($break-mdlg) {
+        width: 65%;
+      }
+    }
+
+    &-2-3-extended {
+      width: 100%;
+
+      @include breakpoint($break-mdlg) {
+        width: 70%;
+      }
+    }
+
+    &-1-4 {
+      width: 100%;
+
+      @include breakpoint($break-sm) {
+        width: 48%;
+      }
+
+      @include breakpoint($break-mdlg) {
+        width: 23%;
+      }
+    }
+  }
+}

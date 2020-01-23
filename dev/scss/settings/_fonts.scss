@@ -1,0 +1,14 @@
+$system-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", 
+	"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+​
+%font-sans-serif {
+	font-family: $system-font;
+}
+
+%font-serif {
+	font-family: Georgia, Cambria,"Times New Roman",Times,serif;
+}
+
+%font-awesome {
+	font-family: FontAwesome; 
+}
