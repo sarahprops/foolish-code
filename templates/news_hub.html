@@ -1,47 +1,67 @@
 {% load static %}
-
 <html>
-  <head>
-    <title>Hello</title>
-    <link rel="stylesheet" href="/static/styles.css">
-  </head>
 
-  <body>
-    <header>
-      <div class="container"><div class="col col-1-1">
-          <a href="http://www.fool.com" class="link-white no-hover" aria-label="home page">
-            <img alt="Motley Fool Logo" src="https://g.foolcdn.com/art/fool15/bg/fool-logo.png">
-          </a>
-      </div></div>
-    </header>
+<head>
+  <title>Hello</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/styles.css" type="text/css">
 
-    <!--Page Content -->
-    <section>
-          <div>
+  <!-- seo tags -->
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
-            <!-- Logo -->
-            <h1>Stock Market News</h1>
-            <p>
-              A Foolish take on stocks and the market. Get stock ideas, investing tips, and perspective.
-            </p>
-            <section>
-              <h2>Latest Headlines</h2>
-              <div>
-                <p>
-                  Pull in latest articles here
-                </p>
-              </div>
+  <!-- extra from sprops -->
+  <meta name="author" content="Sarah Proper">
+</head>
 
-              <!-- Join SA CTA -->
-              {% include "partials/join_sa.html" %}
-            </section>
-          </div>
-    </section>
+<body>
+  <!-- header start -->
+  <header role="banner">
+    <div class="container">
+      <div class="col col-1-1">
+        <a href="http://www.fool.com" class="link-white no-hover" aria-label="Go To the Homepage">
+          <img alt="Motley Fool Logo" src="https://g.foolcdn.com/art/fool15/bg/fool-logo.png">
+        </a>
+      </div>
+    </div>
+  </header>
+  <!-- header end -->
 
-    <!--JS -->
-    <section>
-      <script type="text/javascript" src="/static/scripts.js"></script>
-    </section>
+  <!--Page Content -->
+  <main class="main" id="main" role="main">
+    <div class="container main--container">
+     
+      <!-- main heading section -->
+      <section class="main--heading col col-1-1">     
+        <h1 role="heading" aria-level="1">Stock Market News</h1>
+        <p>
+          A Foolish take on stocks and the market. Get stock ideas, investing tips, and perspective.
+        </p>
+      </section>  
 
-  </body>
+      <!-- main article section -->
+      <section class="main--articles col col-1-1">
+        <h2 role="heading" aria-level="2">Latest Headlines</h2>
+        <p>Articles come in here...</p>
+        <div class="articles--container container container-flex">
+          {% include "partials/article.html" %}
+        </div>
+      </section>
+
+      <!-- join CTA section (has section tag in template) -->
+      {% include "partials/join_sa.html" %}
+
+    </div>
+  </main>
+  <!-- page content end -->
+
+  <!-- footer start -->
+  <footer role="contentinfo">
+    <script type="text/javascript" src="/static/scripts.js"></script>
+  </footer>
+  <!-- footer end -->
+
+</body>
+
 </html>
