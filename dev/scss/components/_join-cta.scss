@@ -30,11 +30,12 @@
 
 	&--header {
 		.stat-key {
-			font-style: italic;
-			padding: 10px;
+			display: none;
 
-			@include breakpoint(max-width $break-md) {
-				width: 50%;
+			@include breakpoint($break-md) {
+				display: block;
+				font-style: italic;
+				padding: 15px;
 			}
 		}
 	}
@@ -43,9 +44,37 @@
 		align-items: center;
   	display: flex;
   	flex-wrap: wrap;
+  	position: relative;
 
+  	// fake our mobile labels
+  	@include breakpoint(max-width $break-md) {
+  		&:nth-of-type(2),
+  		&:nth-of-type(3) {
+  			&::after {
+  				content: '5 years';
+  				font-size: .875rem;
+  				font-style: italic;
+  				position: absolute;
+  				text-align: center;
+  				width: 100%;
+  			}
+  		}
+
+  		&:nth-of-type(2) {
+  			&::after {
+  				content: '5 years';
+  			}
+  		}
+
+  		&:nth-of-type(3) {
+  			&::after {
+  				content: '17+ years';
+  			}
+  		}
+  	}
+
+  	// fake our divider line
   	@include breakpoint($break-md) {
-  		// fake our divider lines
 	  	&:first-of-type {
 	  		.stat-sa {
 	  			@include mf-after-border(2px, 300%);
