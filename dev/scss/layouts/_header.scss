@@ -1,6 +1,5 @@
 header {
 	background-color: $white;
-	margin-bottom: 1rem;
 	padding: 1.25rem 0;
 	position: relative;
 
@@ -24,7 +23,6 @@ header {
 	}
 
 	@include breakpoint($break-md) {
-		margin-bottom: 2rem;
 		padding: 2.5rem 0;
 	}
 }
