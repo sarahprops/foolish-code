@@ -27,13 +27,22 @@ const paths = {
   }
 };
 
+
 /*
+* javascript scripter
+*
+* takes all our source js files, babel-ifies, concats them all together into one file
+* outputs that file, then compresses and outputs a minified version
+* calls livereload
+*
+* return {object}
 */
 function jsScripts() {
   return gulp.src(paths.scripts.dev)
-    .pipe(concat('all.js'))
+    .pipe(babel())
+    .pipe(concat('scripts.js'))
     .pipe(gulp.dest(paths.scripts.prod))
-    .pipe(rename('all.min.js'))
+    .pipe(rename('scripts.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.prod))
     .pipe(livereload());
@@ -44,6 +53,9 @@ function jsScripts() {
 * 
 * takes dev styles path aka our main control scss files
 * compresses, prefixes, and outputs to prod styles path
+* calls livereload
+*
+* todo: set up specific autoprefixer browser lists
 *
 * @return {object} 
 */
@@ -58,26 +70,28 @@ function sassStyles() {
 /*
 * watch those files
 * 
-* set up watchers for our various file types 
+* set up watchers for our various file types
+* inits livereload 
 * 
 */
 function watchers() {
   // compilers
   gulp.watch(paths.styles.dev, sassStyles);
   gulp.watch(paths.styles.dev, jsScripts);
+
   // for live reload
+  livereload.listen();
   gulp.watch(paths.templates.dev).on('change', function(file) {
     livereload.reload();
   });
-  livereload.listen();
 }
 
 /*
 * Build our Assets
 *
 * tods: split this into dev / prod build commands, 
-* only run what needs to go 
-* & add cleaner
+*   only run what needs to go 
+*   & add cleaner
 *
 */
 let build = gulp.series(jsScripts, sassStyles, watchers);
