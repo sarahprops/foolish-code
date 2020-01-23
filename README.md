@@ -26,6 +26,21 @@ gulp
 ### HTML
 
 ### CSS
+```
+background: $blue repeating-linear-gradient(
+	to right, 
+	$blue, $blue 16.66%,
+	$yellow 16.66%, $yellow 33.33%,
+	$red 33.33%, $red 50%,
+	$green 50%, $green 66.66%,
+	$blue 66.66%, $blue 83.33%,
+	$yellow 83.33%, $yellow 100%
+);
+```
+
+```
+@include last-type-margin-bottom();
+```
 
 ### JS
 

@@ -57,7 +57,8 @@ function jsScripts() {
 * compresses, prefixes, and outputs to prod styles path
 * calls livereload
 *
-* todo: set up specific autoprefixer browser lists
+* todo: set up specific autoprefixer browser lists, 
+*  rerun when new files are added
 *
 * @return {object} 
 */
