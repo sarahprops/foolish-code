@@ -19,7 +19,8 @@ const paths = {
     prod: './static/'
   },
   styles: {
-    dev: './dev/scss/styles.scss',
+    dev: './dev/scss/*/*.scss',
+    devMaster: './dev/scss/styles.scss',
     prod: './static/'
   },
   templates: {
@@ -60,7 +61,7 @@ function jsScripts() {
 * @return {object} 
 */
 function sassStyles() {
-  return gulp.src(paths.styles.dev)
+  return gulp.src(paths.styles.devMaster)
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(prefix())
     .pipe(gulp.dest(paths.styles.prod))
@@ -76,12 +77,12 @@ function sassStyles() {
 */
 function watchers() {
   // compilers
+  gulp.watch(paths.scripts.dev, jsScripts);
   gulp.watch(paths.styles.dev, sassStyles);
-  gulp.watch(paths.styles.dev, jsScripts);
 
   // for live reload
   livereload.listen();
-  gulp.watch(paths.templates.dev).on('change', function(file) {
+  gulp.watch(paths.templates.dev).on('change', function() {
     livereload.reload();
   });
 }
