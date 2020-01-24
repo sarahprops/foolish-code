@@ -1,23 +1,30 @@
 /* Our Master SCSS Settings File */
 
-/* base utilities first */
-@import "util/_reset";
-@import "util/_print";
-@import "util/_mixins";
-
-@import "util/breakpoint/_breakpoint";
-
 /* settings */
 @import "settings/_breakpoints";
 @import "settings/_colors";
 @import "settings/_fonts";
+@import "settings/_extras";
+
+/* utilities */
+@import "utils/_reset";
+@import "utils/_print";
+@import "utils/_mixins";
+// breakpoint sass
+@import "utils/breakpoint/_breakpoint";
 
 /* globals */
 @import "global/_base";
-@import "global/_grid"; 
+@import "global/_grid";
+@import "global/_type";
 
 /* elements */
+@import "elements/_buttons";
 
 /* components */
+@import "components/_join-cta";
 
 /* layouts */
+@import "layouts/_header";
+@import "layouts/_footer";
+@import "layouts/_main";

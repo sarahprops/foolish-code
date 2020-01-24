@@ -1,0 +1,10 @@
+header {
+	@include mf-after-border(3px, 100%);
+	background-color: $white;
+	padding: 1.25rem 0;
+	position: relative;
+
+	@include breakpoint($break-md) {
+		padding: 2.5rem 0;
+	}
+}

@@ -1,0 +1,38 @@
+.btn,
+button,
+input[type="submit"],
+input[type="button"] {
+  appearance: none;
+  background-color: $yellow;
+  border: 2px solid $yellow;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $system-font;
+  font-size: 1rem;
+  font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 12px 15px 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all $ts $te;
+  white-space: nowrap;
+  width: 100%;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: rgba($green, .75);
+    border-color: rgba($green, .75);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  @include breakpoint($break-md) {
+    font-size: 1.25rem;
+    padding: 15px 25px 12px;
+    width: auto;
+  }
+}

@@ -24,7 +24,8 @@ const paths = {
     prod: './static/'
   },
   templates: {
-    dev:  './templates/*.html'
+    main:  './templates/*.html',
+    partials:  './templates/*/*.html'
   }
 };
 
@@ -56,7 +57,8 @@ function jsScripts() {
 * compresses, prefixes, and outputs to prod styles path
 * calls livereload
 *
-* todo: set up specific autoprefixer browser lists
+* todo: set up specific autoprefixer browser lists, 
+*  rerun when new files are added
 *
 * @return {object} 
 */
@@ -82,7 +84,7 @@ function watchers() {
 
   // for live reload
   livereload.listen();
-  gulp.watch(paths.templates.dev).on('change', function() {
+  gulp.watch([paths.templates.main, paths.templates.partials]).on('change', function() {
     livereload.reload();
   });
 }
