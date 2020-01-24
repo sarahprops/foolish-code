@@ -1,11 +1,23 @@
-<article  
-	class="article article--item"
-	v-bind:class="[index === 0 || index === 1 ? 'col-1-2' : 'col-1-3']"
-
-	:data-article-type="[[article.article_type]]"
-
+<article 
+	class="article article--item" 
+	v-bind:class="[index === 0 || index === 1 ? 'col-1-2' : 'col-1-3']" 
+	:data-article-type="[[article.article_type]]" 
 	role="article"
 >
- [[ article ]]
-</article>
 
+  <div class="article--image-container">
+  	<template v-for="(image, index) in article.images">
+  		<img v-if="index === 0" :src="[[image.url]]" />
+  	</template>
+    <span>[[article.article_type]]</span>
+  </div>
+
+  <div class="article--content-container">
+  	<h4>[[ article.headline ]]</h4>
+	  <p>[[article.promo]]</p>
+	  <p class="small">By: [[article.byline]]</p>
+
+	  <a class="btn small" :href="[[article.path]]">Read More</a>
+  </div>
+
+</article>
