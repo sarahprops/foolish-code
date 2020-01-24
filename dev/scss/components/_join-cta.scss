@@ -76,7 +76,8 @@
   	@include breakpoint($break-md) {
 	  	&:first-of-type {
 	  		.stat-sa {
-	  			@include mf-after-border(2px, 300%);
+	  			// crazy math
+	  			@include mf-after-border(2px, 312.5%);
 	  		}
 	  	}
   	}
