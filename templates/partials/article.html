@@ -2,22 +2,24 @@
 	role="article"	
 	class="article article--item" 
 	v-bind:class="[index === 0 || index === 1 ? 'article-featured col-1-2' : 'col-1-3']" 
-	:data-article-type="[[article.bureau.slug]]" 
+	:data-article-bureau="[[article.bureau.slug]]" 
 >
 	<!-- article container start-->
 	<div class="article--container">
 
 	  <div class="article--image-container" :style="makeFirstImageBackground(article)">
-	    <span class="article--category">[[ article.bureau.name ]]</span>
+	    <span class="article--bureau" :class="[[article.bureau.slug]]">
+	    	[[ article.bureau.name ]]
+	    </span>
 	  </div>
 
 	  <div class="article--content-container">
-	  	<h4 role="heading" aria-level="4">[[ article.headline ]]</h4>
-	  	<p class="small byline">
+	  	<p class="article--byline">
 	  		<span>By: [[ article.byline ]]</span>
 	  		<span>Published on [[ article.publish_at|convertDate ]]</span>
 	  	</p>
-		  <p>[[ article.promo ]]</p>
+	  	<h4 class="article--heading" role="heading" aria-level="4">[[ article.headline ]]</h4>
+		  <p class="article--promo">[[ article.promo ]]</p>
 
 		  <a class="btn small" :href="[[article.path]]">Read More</a>
 	  </div>

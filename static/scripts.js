@@ -2,6 +2,19 @@
 
 // const Vue = require('vue');
 // const axios = require('axios');
+
+/**
+ * Custom Date Sort for Articles
+ *
+ * takes in article api data and sorts by publish date
+ *
+ * @param {elem} a, b elements for comparison
+ * @return {object} sorted data
+ */
+function sortArticlesByDate(a, b) {
+  return new Date(b.publish_at).getTime() - new Date(a.publish_at).getTime();
+}
+
 new Vue({
   // so we don't fight django
   delimiters: ['[[', ']]'],
@@ -9,7 +22,8 @@ new Vue({
   data: {
     apiArticles: null,
     isErrored: false,
-    isLoading: true
+    isLoading: true,
+    apiArticleBureaus: []
   },
 
   /*
@@ -23,8 +37,20 @@ new Vue({
     var _this = this;
 
     axios.get('/api/articles').then(function (response) {
-      console.log(response.data.results);
-      _this.apiArticles = response.data.results;
+      // get data, sort data
+      var responseData = response.data.results;
+      responseData.sort(sortArticlesByDate); // set apiArtcles data to sorted data
+
+      _this.apiArticles = responseData; // for each article, get the bureau name and add to new array
+
+      responseData.forEach(function (articleData) {
+        var bureauName = articleData.bureau.name; // only add new names
+
+        if (!_this.apiArticleBureaus.includes(bureauName)) {
+          _this.apiArticleBureaus.push(bureauName);
+        } // !this.apiArticleBureaus.includes(bureauName) ? this.apiArticleBureaus.push(bureauName) : '';
+
+      });
     })["catch"](function (error) {
       console.log(error);
       _this.isErrored = true;
@@ -38,8 +64,8 @@ new Vue({
     *
     * takes in a date string and formats it to a readable date
     *
-    * @param {string} takes in a date as a string
-    * @return {string} 
+    * @param {string} date as a string
+    * @return {string} formatted param data string
     */
     convertDate: function convertDate(dateToConvert) {
       var formattedDate = new Date(Date.parse(dateToConvert));

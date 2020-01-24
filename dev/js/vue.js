@@ -1,5 +1,16 @@
 // const Vue = require('vue');
 // const axios = require('axios');
+/**
+ * Custom Date Sort for Articles
+ *
+ * takes in article api data and sorts by publish date
+ *
+ * @param {elem} a, b elements for comparison
+ * @return {object} sorted data
+ */
+function sortArticlesByDate(a, b) {
+	return new Date(b.publish_at).getTime() - new Date(a.publish_at).getTime();
+}
 
 new Vue({
   // so we don't fight django
@@ -8,7 +19,8 @@ new Vue({
   data: {
     apiArticles: null,
     isErrored: false,
-    isLoading: true
+    isLoading: true,
+    apiArticleBureaus: [],
   },
   /*
   * on mount, run our axios request
@@ -21,8 +33,24 @@ new Vue({
     axios
       .get('/api/articles')
       .then(response => {
-        console.log(response.data.results);
-        this.apiArticles = response.data.results;
+      	// get data, sort data
+      	let responseData = response.data.results;
+        responseData.sort(sortArticlesByDate);
+
+        // set apiArtcles data to sorted data
+        this.apiArticles = responseData;
+
+        // for each article, get the bureau name and add to new array
+        responseData.forEach((articleData) => {
+	  			let bureauName = articleData.bureau.name;
+
+	  			// only add new names
+	  			if(!this.apiArticleBureaus.includes(bureauName)) {
+	  				this.apiArticleBureaus.push(bureauName);
+	  			}
+	  			// !this.apiArticleBureaus.includes(bureauName) ? this.apiArticleBureaus.push(bureauName) : '';
+	  		});
+
       })
       .catch(error => {
         console.log(error)
@@ -36,14 +64,14 @@ new Vue({
 		 *
 		 * takes in a date string and formats it to a readable date
 		 *
-		 * @param {string} takes in a date as a string
-		 * @return {string} 
+		 * @param {string} date as a string
+		 * @return {string} formatted param data string
 		 */
     convertDate: function(dateToConvert) {
       let formattedDate = new Date(Date.parse(dateToConvert));
       dateToConvert = formattedDate.toLocaleString();
       return dateToConvert;
-    },
+    }
   },
   methods: {
   	/**
@@ -59,5 +87,5 @@ new Vue({
     	let url = apiArticleContext.images[0].url;
       return `background-image: url('${url}')`; 
     }
-  }
+  },
 });
