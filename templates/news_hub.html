@@ -43,11 +43,24 @@
       <!-- main article section -->
       <section class="main--articles col col-1-1">
         <h2 role="heading" aria-level="2">Latest Headlines</h2>
-        <p>Articles come in here...</p>
         
-        <div class="articles--container container container-flex">
-          {% include "partials/article.html" %}
+        <!-- vue app starts -->
+        <div class="articles--container container container-flex" id="vue-app">
+
+          <p v-if="isErrored">
+            We're sorry, we're not able to retrieve this information at the moment, please try back later!
+          </p>
+
+          <p v-if="isLoading && !isErrored">Loading...</p>
+
+          <template v-if="!isLoading">
+            <template v-for="(article, index) in apiArticles">
+              {% include "partials/article.html" %}
+            </template>
+          </template>
+
         </div>
+        <!-- vue app ends -->
       </section>
 
     </div>
@@ -64,6 +77,9 @@
     </div>
   </footer>
   <!-- footer end -->
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <script type="text/javascript" src="/static/scripts.js"></script>
 </body>
