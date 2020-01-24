@@ -23,7 +23,8 @@ new Vue({
     apiArticles: null,
     isErrored: false,
     isLoading: true,
-    apiArticleBureaus: []
+    apiArticleBureaus: [],
+    selected: ''
   },
 
   /*
@@ -86,6 +87,19 @@ new Vue({
     makeFirstImageBackground: function makeFirstImageBackground(apiArticleContext) {
       var url = apiArticleContext.images[0].url;
       return "background-image: url('".concat(url, "')");
-    }
+    },
+
+    /**
+    * take bureau name and convert it
+    *
+    * removes commas, replaces spaces with dashes, and lowercases
+    *
+    * @param {string} the strong to be converted
+    * @return {string} the converted string
+    */
+    bureauNameConverted: function bureauNameConverted(stringToConvert) {
+      return stringToConvert.replace(/,/g, "").replace(/\s+/g, '-').toLowerCase();
+    },
+    bureauFilterChanged: function bureauFilterChanged(e) {}
   }
 });

@@ -2,7 +2,7 @@
 	role="article"	
 	class="article article--item" 
 	v-bind:class="[index === 0 || index === 1 ? 'article-featured col-1-2' : 'col-1-3']" 
-	:data-article-bureau="[[article.bureau.slug]]" 
+	:data-article-bureau="[[ bureauNameConverted(article.bureau.name) ]]" 
 >
 	<!-- article container start-->
 	<div class="article--container">
@@ -15,8 +15,8 @@
 
 	  <div class="article--content-container">
 	  	<p class="article--byline">
-	  		<span>By: [[ article.byline ]]</span>
-	  		<span>Published on [[ article.publish_at|convertDate ]]</span>
+	  		<span>Published by: [[ article.byline ]]</span>
+	  		<span>on [[ article.publish_at|convertDate ]]</span>
 	  	</p>
 	  	<h4 class="article--heading" role="heading" aria-level="4">[[ article.headline ]]</h4>
 		  <p class="article--promo">[[ article.promo ]]</p>

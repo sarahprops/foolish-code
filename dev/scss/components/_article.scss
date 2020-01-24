@@ -70,10 +70,6 @@
 	&--byline {
 		font-size: .875rem;
 		margin-bottom: .5rem; 
-
-		span:not(:last-of-type)::after {
-			content: ' |';
-		}
 	}
 
 	&--heading {

@@ -21,6 +21,7 @@ new Vue({
     isErrored: false,
     isLoading: true,
     apiArticleBureaus: [],
+    selected: '',
   },
   /*
   * on mount, run our axios request
@@ -71,7 +72,7 @@ new Vue({
       let formattedDate = new Date(Date.parse(dateToConvert));
       dateToConvert = formattedDate.toLocaleString();
       return dateToConvert;
-    }
+    },
   },
   methods: {
   	/**
@@ -86,6 +87,22 @@ new Vue({
     makeFirstImageBackground: function(apiArticleContext) { 
     	let url = apiArticleContext.images[0].url;
       return `background-image: url('${url}')`; 
-    }
-  },
+    },
+
+    /**
+		 * take bureau name and convert it
+		 *
+		 * removes commas, replaces spaces with dashes, and lowercases
+		 *
+		 * @param {string} the strong to be converted
+		 * @return {string} the converted string
+		 */
+    bureauNameConverted: function(stringToConvert) {
+    	return stringToConvert.replace(/,/g,"").replace(/\s+/g, '-').toLowerCase();
+    },
+
+    bureauFilterChanged: function(e) {
+  		
+  	}
+  }
 });
