@@ -59,7 +59,7 @@
         width: 50%;
       }
 
-      @include breakpoint($break-mdlg) {
+      @include breakpoint($break-lg) {
         width: 25%;
       }
     }
