@@ -1,0 +1,40 @@
+// styles for the articles container
+.articles {
+	&--container {
+		padding: 0;
+		
+		@include breakpoint($break-md) {
+			background-color: $white;
+			padding: .5rem 1.25rem;
+		}
+
+		@include breakpoint($break-lg) {
+			padding: 1.25rem 2rem;
+		}
+	}
+
+	&--header {
+		align-items: center;
+		margin-bottom: 1.5rem;
+
+		h2 {
+			margin-bottom: 0;
+		}
+	}
+
+	&--filter {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		margin-top: 1rem;
+
+		label {
+			margin: 10px;
+		}
+
+		@include breakpoint($break-md) {
+			justify-content: flex-end;
+		}
+	}
+}
