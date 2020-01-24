@@ -80,7 +80,6 @@ h6 {
 }
 
 p {
-  @include last-type-margin-bottom(0px);
   margin: 0 0 1.25rem;
   font-size: 1rem;
   line-height: 1.6;

@@ -47,12 +47,13 @@
         <!-- vue app starts -->
         <div class="articles--container container container-flex" id="vue-app">
 
+          <p v-if="isLoading && !isErrored">Loading...</p>
+
           <p v-if="isErrored">
             We're sorry, we're not able to retrieve this information at the moment, please try back later!
           </p>
 
-          <p v-if="isLoading && !isErrored">Loading...</p>
-
+          <!-- to do convert to vue component -->
           <template v-if="!isLoading">
             <template v-for="(article, index) in apiArticles">
               {% include "partials/article.html" %}
@@ -78,6 +79,10 @@
   </footer>
   <!-- footer end -->
 
+  <!-- 
+    to do fix babel on scripts.js
+    adding in absolute links to for now build
+  -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 

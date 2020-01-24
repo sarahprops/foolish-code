@@ -6,8 +6,8 @@
 	text-align: center;
 
 	@include breakpoint($break-md) {
-    padding: 2.5rem 0;
-  }
+		padding: 2.5rem 0;
+	}
 
   &--sign-up {
   	padding: 1rem 0;
