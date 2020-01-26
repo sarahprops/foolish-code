@@ -27,8 +27,7 @@ new Vue({
     apiArticles: null,
     isErrored: false,
     isLoading: true,
-    apiArticleBureaus: [],
-    selected: ''
+    apiArticleBureaus: []
   },
 
   /*
@@ -100,11 +99,50 @@ new Vue({
     *
     * removes commas, replaces spaces with dashes, and lowercases
     *
-    * @param {string} the strong to be converted
+    * @param {string} stringToConvert the strong to be converted
     * @return {string} the converted string
     */
     bureauNameConverted: function bureauNameConverted(stringToConvert) {
       return stringToConvert.replace(/,/g, "").replace(/\s+/g, '-').toLowerCase();
+    },
+
+    /**
+    * actions when the bureau filter changes
+    *
+    * 
+    *
+    * @param {event} e event
+    */
+    bureauFilterChanged: function bureauFilterChanged(e) {
+      // vars
+      var articlesMarkup = document.querySelectorAll('.article'),
+          selectedValue,
+          visibleCounter;
+      selectedValue = e.target.value;
+      visibleCounter = 0; // for each article from the dom
+      // show or hide based on selected value
+
+      articlesMarkup.forEach(function (articleItem) {
+        var articleDataBureau = articleItem.dataset.articleBureau; // only want to show 5
+
+        if (visibleCounter >= 5) {
+          articleItem.style.display = 'none';
+        } else {
+          // show all
+          if (selectedValue === 'view-all' || selectedValue === articleDataBureau) {
+            articleItem.style.display = 'block';
+            visibleCounter++;
+
+            if (visibleCounter <= 2) {
+              articleItem.classList.add('article-featured');
+            } else {
+              articleItem.classList.remove('article-featured');
+            }
+          } else {
+            articleItem.style.display = 'none';
+          }
+        }
+      });
     }
   }
 });

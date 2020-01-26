@@ -2,6 +2,13 @@
 .article {
 	margin-bottom: 2rem;
 
+	// first two items bigger
+	&.article-featured {
+		@include breakpoint($break-md) {
+			width: 48%;
+		}
+	}
+
 	// only show 5
 	&:nth-of-type(n+6){
 		display: none;
