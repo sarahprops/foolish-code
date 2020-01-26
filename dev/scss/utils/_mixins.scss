@@ -39,14 +39,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-// set a custom margin bottom for the last of type
-// useful for large bodies of paragraph text
-@mixin last-type-margin-bottom($px) {
-  &:last-of-type {
-    margin-bottom: $px;
-  }
-}
-
 // custom mf border
 @mixin mf-after-border($height, $width) {
   &::after {

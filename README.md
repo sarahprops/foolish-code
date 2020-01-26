@@ -22,6 +22,7 @@ npm install
 gulp
 ```
 
+to use gulp livereload, add the [livereload chrome extension](http://livereload.com/extensions/)
 
 ### HTML
 intro
@@ -51,7 +52,9 @@ As noted in the code comment: after 66.66% the pattern repeats, therefore the bl
 
 
 ### JS
-
+gulp
+babel
+vue
 
 ## Other Notes
 

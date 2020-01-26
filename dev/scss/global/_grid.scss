@@ -16,11 +16,6 @@
     justify-content: space-between;
   }
 
-  // nested containers no double padding
-  .container {
-    padding: 0;
-  }
-
   .col {
     &-1-1 {
       width: 100%;
@@ -30,7 +25,7 @@
       width: 100%;
 
       @include breakpoint($break-md) {
-        width: 50%;
+        width: 48%;
       }
     }
 
@@ -38,7 +33,7 @@
       width: 100%;
 
       @include breakpoint($break-md) {
-        width: 33.33%;
+        width: 32%;
       }
     }
 
@@ -47,20 +42,7 @@
       width: 100%;
 
       @include breakpoint($break-md) {
-        width: 66.66%;
-      }
-    }
-
-
-    &-1-4 {
-      width: 100%;
-
-      @include breakpoint($break-sm) {
-        width: 50%;
-      }
-
-      @include breakpoint($break-lg) {
-        width: 25%;
+        width: 64%;
       }
     }
   }

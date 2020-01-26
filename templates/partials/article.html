@@ -1,3 +1,30 @@
-<article class="article article--item col-1-3" role="article" data-article="" data-instrument="">
-    <h3>hiii</h3>
+<article 
+	role="article"	
+	class="article article--item col-1-3" 
+	v-bind:class="[index === 0 || index === 1 ? 'article-featured' : '' ]" 
+	:data-article-bureau="[[ bureauNameConverted(article.bureau.name) ]]" 
+>
+	<!-- article container start-->
+	<div class="article--container">
+
+	  <div class="article--image-container" :style="makeFirstImageBackground(article)">
+	    <span class="article--bureau" :class="[[article.bureau.slug]]">
+	    	[[ article.bureau.name ]]
+	    </span>
+	  </div>
+
+	  <div class="article--content-container">
+	  	<p class="article--byline">
+	  		<span>Published by [[ article.byline ]]</span>
+	  		<span>on [[ article.publish_at|convertDate ]]</span>
+	  	</p>
+	  	<h4 class="article--heading" role="heading" aria-level="4">[[ article.headline ]]</h4>
+		  <p class="article--promo">[[ article.promo ]]</p>
+
+		  <a class="btn small" :href="[[article.path]]">Read More</a>
+	  </div>
+
+	</div> 
+	<!-- article container end --> 
+
 </article>

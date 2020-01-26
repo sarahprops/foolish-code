@@ -16,6 +16,7 @@ input[type="button"] {
   font-weight: bold;
   letter-spacing: 1px;
   padding: 12px 15px 12px;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   transition: all $ts $te;
@@ -34,5 +35,10 @@ input[type="button"] {
     font-size: 1.25rem;
     padding: 15px 25px 12px;
     width: auto;
+  }
+
+  &.small {
+    font-size: 1rem;
+    padding: 12px 15px;
   }
 }
