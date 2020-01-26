@@ -130,14 +130,15 @@ new Vue({
         } else {
           // show all
           if (selectedValue === 'view-all' || selectedValue === articleDataBureau) {
-            articleItem.style.display = 'block';
-            visibleCounter++;
+            articleItem.style.display = 'block'; // if its our first two add the featured article class
 
-            if (visibleCounter <= 2) {
+            if (visibleCounter < 2) {
               articleItem.classList.add('article-featured');
             } else {
               articleItem.classList.remove('article-featured');
             }
+
+            visibleCounter++;
           } else {
             articleItem.style.display = 'none';
           }

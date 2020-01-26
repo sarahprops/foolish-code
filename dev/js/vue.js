@@ -133,22 +133,20 @@ new Vue({
   				// show all
 	  			if(selectedValue === 'view-all' || selectedValue === articleDataBureau) {
 	  				articleItem.style.display = 'block';
-	  				visibleCounter++;
-
-	  				if(visibleCounter <= 2) {
+	  			
+	  				// if its our first two add the featured article class
+	  				if(visibleCounter < 2) {
 	  					articleItem.classList.add('article-featured');
 	  				} else {
 	  					articleItem.classList.remove('article-featured');
 	  				}
 
+	  				visibleCounter++;
 	  			} else {
   					articleItem.style.display = 'none';
   				}
   			}
   		});
-
-
-
   	}
   }
 });
