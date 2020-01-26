@@ -14,6 +14,10 @@
 function sortArticlesByDate(a, b) {
   return new Date(b.publish_at).getTime() - new Date(a.publish_at).getTime();
 }
+/*
+ * VUE
+ */
+
 
 new Vue({
   // so we don't fight django
@@ -30,7 +34,9 @@ new Vue({
   /*
   * on mount, run our axios request
   * 
-  * on response, update our vue data obj with response data
+  * on response, 
+  * 	update our vue data obj with response data
+  *		create article bureau obj with response data
   * on error, log error and throw up error flag
   * on end, turn off loading flag
   */
@@ -99,7 +105,6 @@ new Vue({
     */
     bureauNameConverted: function bureauNameConverted(stringToConvert) {
       return stringToConvert.replace(/,/g, "").replace(/\s+/g, '-').toLowerCase();
-    },
-    bureauFilterChanged: function bureauFilterChanged(e) {}
+    }
   }
 });
