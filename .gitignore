@@ -1,12 +1,2 @@
 # no dev stuff
 node_modules
-
-# no design stuff
-*.psd
-*.ai
-
-# no wordpress stuff
-minimal.py
-requirements.txt
-# do we need this idk 
-api_data/*
