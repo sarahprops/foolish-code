@@ -1,111 +1,104 @@
 {% load static %}
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
-<head>
-  <title>Hello</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/styles.css" type="text/css">
+  <head>
+    <title>Fool.com: Stock Investing Advice | Stock Market News</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/media/favicon.ico">
 
-  <!-- seo tags -->
-  <meta name="description" content="A Foolish take on stocks and the market. Get stock ideas, investing tips, and perspective.">
-  <meta name="keywords" content="Sock Market, Stock Market, Sock Market News, Stock Market News">
+    <!-- seo tags -->
+    <meta name="description" content="A Foolish take on stocks and the market. Get stock ideas, investing tips, and perspective.">
+    <meta name="keywords" content="Sock Market, Stock Market, Sock Market News, Stock Market News">
 
-  <!-- extra from sprops -->
-  <meta name="author" content="Sarah Proper">
-</head>
+    <!-- functional -->
+    <link rel="stylesheet" href="/static/styles.css" type="text/css">
+  </head>
 
-<body>
-  <!-- header start -->
-  <header role="banner">
-    <div class="container">
-      <div class="col col-1-1">
-        <a href="http://www.fool.com" class="link-white no-hover" aria-label="Go To the Homepage">
-          <img alt="Motley Fool Logo" src="https://g.foolcdn.com/art/fool15/bg/fool-logo.png">
-        </a>
-      </div>
-    </div>
-  </header>
-  <!-- header end -->
-
-  <!--Page Content -->
-  <main class="main" id="main" role="main">
-    <div class="container main--container">
-     
-      <!-- main heading section -->
-      <section class="main--heading col col-1-1">     
-        <h1 role="heading" aria-level="1">Stock Market News</h1>
-        <p>
-          A Foolish take on stocks and the market. Get stock ideas, investing tips, and perspective.
-        </p>
-      </section>  
-
-      <!-- main article section -->
-      <section class="main--articles col col-1-1">
-        <!-- vue app starts -->
-        <div class="articles--container container container-flex" id="vue-app">
-
-          <section class="articles--header col-1-1 container-flex">
-            <h2 class="col-2-3"role="heading" aria-level="2">
-              Latest Headlines
-            </h2>
-
-            <aside v-if="apiArticleBureaus && !isLoading" class="articles--filter col-1-3">
-              <label for="bureau-filter">Filter by...</label>
-              <select id="bureau-filter" name="bureau-filter" v-on:change="bureauFilterChanged">
-                <option value="view-all">View All</option>
-                <option 
-                  v-for="bureauName in apiArticleBureaus"
-                  :value="[[ bureauNameConverted(bureauName) ]]"
-                >
-                  [[ bureauName ]]
-                </option>
-              </select>
-            </aside>
-
-            <div class="articles--messaging col-1-1">
-              <p v-if="isLoading && !isErrored">Loading...</p>
-              <p v-if="isErrored">
-                We're sorry, we're not able to retrieve this information at the moment, please try back later!
-              </p>
-            </div> 
-
-          </section>
-
-          <!-- to do convert to vue component -->
-          <template v-if="!isLoading">
-            <template v-for="(article, index) in apiArticles">
-              {% include "partials/article.html" %}
-            </template>
-          </template>
-
+  <body>
+    <!-- header start -->
+    <header role="banner">
+      <div class="container">
+        <div class="col col-1-1">
+          <a href="http://www.fool.com" class="link-white no-hover" aria-label="Go To the Homepage">
+            <img alt="Motley Fool Logo" src="https://g.foolcdn.com/art/fool15/bg/fool-logo.png">
+          </a>
         </div>
-        <!-- vue app ends -->
-      </section>
+      </div>
+    </header>
+    <!-- header end -->
 
-    </div>
-  </main>
-  <!-- page content end -->
+    <!--Page Content -->
+    <main class="main" id="main" role="main">
+      <div class="container main--container">
+       
+        <!-- main heading section -->
+        <section class="main--heading col col-1-1">     
+          <h1 role="heading" aria-level="1">Stock Market News</h1>
+          <p>A Foolish take on stocks and the market. Get stock ideas, investing tips, and perspective.</p>
+        </section>  
 
-  <!-- join CTA section (has section tag in template) -->
-  {% include "partials/join_sa.html" %}
+        <!-- main article section -->
+        <section class="main--articles col col-1-1">
+          <!-- vue app starts -->
+          <div class="articles--container container container-flex" id="vue-app">
 
-  <!-- footer start -->
-  <footer role="contentinfo">
-    <div class="container">
-      <p class="small">&copy; 1995 - 2020 The Motley Fool. All rights reserved.</p>
-    </div>
-  </footer>
-  <!-- footer end -->
+            <section class="articles--header col-1-1 container-flex">
+              <h2 class="col-2-3"role="heading" aria-level="2">Latest Headlines</h2>
 
-  <!-- 
-    to do fix babel on scripts.js
-    adding in absolute links to for now build
-  -->
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+              <aside v-if="apiArticleBureaus && !isLoading" class="articles--filter col-1-3">
+                <label for="bureau-filter">Filter by...</label>
+                <select id="bureau-filter" name="bureau-filter" @change="bureauFilterChanged">
+                  <option value="view-all">View All</option>
+                  <option v-for="bureauName in apiArticleBureaus" :value="[[ bureauNameConverted(bureauName) ]]">[[ bureauName ]]</option>
+                </select>
+              </aside>
 
-  <script type="text/javascript" src="/static/scripts.js"></script>
-</body>
+              <div class="articles--messaging col-1-1">
+                <p v-if="isLoading && !isErrored">Loading...</p>
+                <p v-if="isErrored">We're sorry, we're unable to show articles at this moment, please try back later!</p>
+              </div> 
+            </section>
+
+            <!-- to do convert to vue component instead of django partial -->
+            <template v-if="!isLoading">
+              <template v-for="(article, index) in apiArticles">
+                {% include "partials/article.html" %}
+              </template>
+            </template>
+
+          </div>
+          <!-- vue app ends -->
+        </section>
+
+      </div>
+    </main>
+    <!-- page content end -->
+
+    <!-- join CTA section (has section tag in template) -->
+    {% include "partials/join_sa.html" %}
+
+    <!-- footer start -->
+    <footer role="contentinfo">
+      <div class="container">
+        <p class="small">&copy; 1995 - 2020 The Motley Fool. All rights reserved.</p>
+      </div>
+    </footer>
+    <!-- footer end -->
+
+    <!-- 
+      to do fix babel on scripts.js
+      adding in absolute links to for now build
+
+      dev vue
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script type="text/javascript" src="/static/scripts.min.js"></script>
+  </body>
 
 </html>

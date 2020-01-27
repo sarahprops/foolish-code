@@ -1,3 +1,8 @@
+/*
+* Button Styles
+* 
+* styles for buttons and things that look like buttons
+*/
 .btn,
 button,
 input[type="submit"],
@@ -37,6 +42,7 @@ input[type="button"] {
     width: auto;
   }
 
+  // variations
   &.small {
     font-size: 1rem;
     padding: 12px 15px;

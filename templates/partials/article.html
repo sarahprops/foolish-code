@@ -8,7 +8,7 @@
 	<div class="article--container">
 
 	  <div class="article--image-container" :style="makeFirstImageBackground(article)">
-	    <span class="article--bureau" :class="[[article.bureau.slug]]">
+	    <span class="article--bureau" :class="[[ article.bureau.slug ]]">
 	    	[[ article.bureau.name ]]
 	    </span>
 	  </div>
@@ -21,7 +21,7 @@
 	  	<h4 class="article--heading" role="heading" aria-level="4">[[ article.headline ]]</h4>
 		  <p class="article--promo">[[ article.promo ]]</p>
 
-		  <a class="btn small" :href="[[article.path]]">Read More</a>
+		  <a class="btn small" :href="[[ article.path ]]" role="button">Read More</a>
 	  </div>
 
 	</div> 

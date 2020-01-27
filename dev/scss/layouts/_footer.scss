@@ -1,10 +1,15 @@
+/*
+* Footer Styles
+* 
+* layout styles for the footer
+*/
 footer {
-	background-color: $darkBlue;
-	padding: 1.25rem 0;
-	position: relative;
-	text-align: center;
+  background-color: $darkBlue;
+  padding: 1.25rem 0;
+  position: relative;
+  text-align: center;
 
-	p {
-		color: $white;
-	}
+  p {
+    color: $white;
+  }
 }
