@@ -1,3 +1,7 @@
+/*
+* color vars
+* provided by mf
+*/
 // Main Colors
 $black: #000;
 $white: #fff;
@@ -8,7 +12,7 @@ $darkBlue: #204060;
 $yellow: #FFCC33;
 $green: #339933;
 $red: #CC3300;
-$beige: #FFCC99; 
+$beige: #FFCC99;
 
 // Alerts
 $alert-danger: #B94A48;
@@ -42,11 +46,13 @@ $pull-quote-color: #909090 !default;
 
 $pos-color: #071 !default;
 $neg-color: #B00 !default;
+
 .pos {
-    color: $pos-color;
+  color: $pos-color;
 }
+
 .neg {
-    color: $neg-color;
+  color: $neg-color;
 }
 
 
@@ -54,15 +60,14 @@ $neg-color: #B00 !default;
 $usmf-main-color: #07a;
 $rule-breakers-main-color: #d60;
 $stock-advisor-main-color: #07a;
-$premium-service-colors: (
-	one: #224f78,	//1255
-	options: #298,	//1321, 50
-	pro: #076,		//1228
-	rb: #d51,		//1069
-	ryr: #469,		//1062
-	sa: #248ab6,	//1081
-	so: #124,		//1371, 52
-	sn: #0c4070		//1502
+$premium-service-colors: (one: #224f78, //1255
+options: #298, //1321, 50
+pro: #076, //1228
+rb: #d51, //1069
+ryr: #469, //1062
+sa: #248ab6, //1081
+so: #124, //1371, 52
+sn: #0c4070 //1502
 );
 
 $stock-advisor-color: #0080b2;

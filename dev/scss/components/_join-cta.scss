@@ -1,123 +1,135 @@
+/*
+* Join CTA Styles
+* 
+* Styles for the join cta banner
+*/
 .join-cta {
-	@include mf-after-border(3px, 100%);
-	background-color: $white;
-	padding: 1.75rem 0 1.5rem;
-	position: relative;
-	text-align: center;
+  @include mf-after-border(3px, 100%);
+  background-color: $white;
+  padding: 1.75rem 0 1.5rem;
+  position: relative;
+  text-align: center;
 
-	@include breakpoint($break-md) {
-		padding: 2.5rem 0;
-	}
+  @include breakpoint($break-md) {
+    padding: 2.5rem 0;
+  }
 
   &--sign-up {
-  	padding: 1rem 0;
-  	width: 100%;
+    padding: 1rem 0;
+    width: 100%;
 
-  	p {
-  		margin-bottom: 1rem;
-  	}
+    p {
+      margin-bottom: 1rem;
+    }
   }
 }
 
+
+/*
+* stat table styles
+*/
 .stat-table {
-	border: 1px solid rgba($border-color, .5);
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 auto 1rem;
-	max-width: 900px;
-	padding: 1rem 0;
-	width: 100%;
+  border: 1px solid rgba($border-color, .5);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto 1rem;
+  max-width: 900px;
+  padding: 1rem 0;
+  width: 100%;
 
-	&--header {
-		.stat-key {
-			display: none;
+  &--header {
+    .stat-key {
+      display: none;
 
-			@include breakpoint($break-md) {
-				display: block;
-				font-style: italic;
-				padding: 15px;
-			}
-		}
-	}
+      @include breakpoint($break-md) {
+        display: block;
+        font-style: italic;
+        padding: 15px;
+      }
+    }
+  }
 
-	&--stat {
-		align-items: center;
-  	display: flex;
-  	flex-wrap: wrap;
-  	position: relative;
+  &--stat {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
 
-  	// fake our mobile labels
-  	@include breakpoint(max-width $break-md) {
-  		&:nth-of-type(2),
-  		&:nth-of-type(3) {
-  			&::after {
-  				font-size: .875rem;
-  				font-style: italic;
-  				position: absolute;
-  				text-align: center;
-  				width: 100%;
-  			}
-  		}
+    // fake our mobile labels
+    // mobile down
+    @include breakpoint(max-width $break-md) {
 
-  		&:nth-of-type(2) {
-  			&::after {
-  				content: '5 years';
-  			}
-  		}
+      &:nth-of-type(2),
+      &:nth-of-type(3) {
+        &::after {
+          font-size: .875rem;
+          font-style: italic;
+          position: absolute;
+          text-align: center;
+          width: 100%;
+        }
+      }
 
-  		&:nth-of-type(3) {
-  			&::after {
-  				content: '17+ years';
-  			}
-  		}
-  	}
+      &:nth-of-type(2) {
+        &::after {
+          content: '5 years';
+        }
+      }
 
-  	// fake our divider line
-  	@include breakpoint($break-md) {
-	  	&:first-of-type {
-	  		.stat-sa {
-	  			// crazy math
-	  			@include mf-after-border(2px, 312.5%);
-	  		}
-	  	}
-  	}
+      &:nth-of-type(3) {
+        &::after {
+          content: '17+ years';
+        }
+      }
+    }
 
-  	.stat-sa,
-		.stat-sp {
-			padding: 10px;
-			width: 50%;
+    // fake our divider line
+    // mobile up
+    @include breakpoint($break-md) {
+      &:first-of-type {
+        .stat-sa {
+          // crazy math
+          @include mf-after-border(2px, 312.5%);
+        }
+      }
+    }
 
-			h5 {
-				margin-bottom: 0;
-			}
+    .stat-sa,
+    .stat-sp {
+      padding: 10px;
+      width: 50%;
 
-			span {
-				font-size: 2rem;
-				font-weight: bold;
-			}
+      h5 {
+        margin-bottom: 0;
+      }
 
-			@include breakpoint($break-md) {
-				min-height: 65px;
-				padding: 1rem;
-				width: 100%;
-			}
-		}
+      span {
+        font-size: 2rem;
+        font-weight: bold;
+      }
 
-		.stat-sa {
-			color: $green;
-			position: relative;
-		}
+      @include breakpoint($break-md) {
+        min-height: 65px;
+        padding: 1rem;
+        width: 100%;
+      }
+    }
 
-		.stat-sp {
-			color: $red;
-		}
+    .stat-sa {
+      color: $green;
+      position: relative;
+    }
+
+    .stat-sp {
+      color: $red;
+    }
   }
 
   &--footer {
-  	padding-top: 1.5rem;
+    padding-top: 1.5rem;
 
-  	@include breakpoint($break-md) {
-  		padding-top: 2rem;
-  	}
+    @include breakpoint($break-md) {
+      padding-top: 2rem;
+    }
   }
 }

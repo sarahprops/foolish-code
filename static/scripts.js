@@ -1,5 +1,6 @@
 "use strict";
 
+// to do: fix babel to use this
 // const Vue = require('vue');
 // const axios = require('axios');
 
@@ -31,14 +32,14 @@ new Vue({
   },
 
   /*
-  * on mount, run our axios request
-  * 
-  * on response, 
-  * 	update our vue data obj with response data
-  *		create article bureau obj with response data
-  * on error, log error and throw up error flag
-  * on end, turn off loading flag
-  */
+   * on mount, run our axios request
+   * 
+   * on response, 
+   *  update our vue data obj with response data
+   *    create article bureau obj with response data
+   * on error, log error and throw up error flag
+   * on end, turn off loading flag
+   */
   mounted: function mounted() {
     var _this = this;
 
@@ -66,13 +67,13 @@ new Vue({
   },
   filters: {
     /**
-    * Convert date
-    *
-    * takes in a date string and formats it to a readable date
-    *
-    * @param {string} date as a string
-    * @return {string} formatted param data string
-    */
+     * Convert date
+     *
+     * takes in a date string and formats it to a readable date
+     *
+     * @param {string} date as a string
+     * @return {string} formatted param data string
+     */
     convertDate: function convertDate(dateToConvert) {
       var formattedDate = new Date(Date.parse(dateToConvert));
       dateToConvert = formattedDate.toLocaleString();
@@ -81,38 +82,39 @@ new Vue({
   },
   methods: {
     /**
-    * get the first background image and set it as background
-    *
-    * for article previews, only show the first image from images json data
-    * then set that as a background image
-    *
-    * @param {obj} the article context passed from the template
-    * @return {string} the background image text with url of image 
-    */
+     * get the first background image and set it as background
+     *
+     * for article previews, only show the first image from images json data
+     * then set that as a background image
+     *
+     * @param {obj} the article context passed from the template
+     * @return {string} the background image text with url of image 
+     */
     makeFirstImageBackground: function makeFirstImageBackground(apiArticleContext) {
       var url = apiArticleContext.images[0].url;
       return "background-image: url('".concat(url, "')");
     },
 
     /**
-    * take bureau name and convert it
-    *
-    * removes commas, replaces spaces with dashes, and lowercases
-    *
-    * @param {string} stringToConvert the strong to be converted
-    * @return {string} the converted string
-    */
+     * take bureau name and convert it
+     *
+     * removes commas, replaces spaces with dashes, and lowercases
+     *
+     * @param {string} stringToConvert the strong to be converted
+     * @return {string} the converted string
+     */
     bureauNameConverted: function bureauNameConverted(stringToConvert) {
       return stringToConvert.replace(/,/g, "").replace(/\s+/g, '-').toLowerCase();
     },
 
     /**
-    * actions when the bureau filter changes
-    *
-    * 
-    *
-    * @param {event} e event
-    */
+     * actions when the bureau filter changes
+     *
+     * grab our dom articles and show / hide based on select value
+     * limit to 5 being shown & give first 2 visible featured class
+     *
+     * @param {event} e event
+     */
     bureauFilterChanged: function bureauFilterChanged(e) {
       // vars
       var articlesMarkup = document.querySelectorAll('.article'),
@@ -128,15 +130,18 @@ new Vue({
         if (visibleCounter >= 5) {
           articleItem.style.display = 'none';
         } else {
-          // show all
+          // show if all or matches to be shown
           if (selectedValue === 'view-all' || selectedValue === articleDataBureau) {
+            // show
             articleItem.style.display = 'block'; // if its our first two add the featured article class
+            // else remove, just in case
 
             if (visibleCounter < 2) {
               articleItem.classList.add('article-featured');
             } else {
               articleItem.classList.remove('article-featured');
-            }
+            } // increase counter
+
 
             visibleCounter++;
           } else {

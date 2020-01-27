@@ -1,7 +1,12 @@
+/*
+* Main Styles
+* 
+* layout styles for the <main> section
+*/
 main {
-	margin: 1rem 0;
+  margin: 1rem 0;
 
-	@include breakpoint($break-md) {
-		margin: 2rem 0;
-	}
+  @include breakpoint($break-md) {
+    margin: 2rem 0;
+  }
 }

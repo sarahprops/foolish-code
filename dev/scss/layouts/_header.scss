@@ -1,11 +1,16 @@
+/*
+* Header Styles
+* 
+* layout styles for the header
+*/
 header {
-	@include mf-after-border(3px, 100%);
-	background-color: $white;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.08);
-	padding: 1.25rem 0;
-	position: relative;
+  @include mf-after-border(3px, 100%);
+  background-color: $white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+  padding: 1.25rem 0;
+  position: relative;
 
-	@include breakpoint($break-md) {
-		padding: 2.5rem 0;
-	}
+  @include breakpoint($break-md) {
+    padding: 2.5rem 0;
+  }
 }
