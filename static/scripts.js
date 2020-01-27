@@ -125,13 +125,13 @@ new Vue({
       // show or hide based on selected value
 
       articlesMarkup.forEach(function (articleItem) {
-        var articleDataBureau = articleItem.dataset.articleBureau; // only want to show 5
+        var articleItemBureau = articleItem.dataset.articleBureau; // only want to show 5
 
         if (visibleCounter >= 5) {
           articleItem.style.display = 'none';
         } else {
-          // show if all or matches to be shown
-          if (selectedValue === 'view-all' || selectedValue === articleDataBureau) {
+          // show if most recent or matches to be shown
+          if (selectedValue === 'most-recent' || selectedValue === articleItemBureau) {
             // show
             articleItem.style.display = 'block'; // if its our first two add the featured article class
             // else remove, just in case

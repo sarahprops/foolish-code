@@ -21,7 +21,14 @@
 	  	<h4 class="article--heading" role="heading" aria-level="4">[[ article.headline ]]</h4>
 		  <p class="article--promo">[[ article.promo ]]</p>
 
-		  <a class="btn small" :href="[[ article.path ]]" role="button">Read More</a>
+		  <a 
+		  	class="btn small"
+		  	role="button" 
+		  	:href="[[ article.path ]]"  
+		  	:aria-label="`Read more about ${article.headline}`"
+		  >
+		  	Read More
+		  </a>
 	  </div>
 
 	</div> 

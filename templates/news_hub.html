@@ -22,7 +22,7 @@
     <header role="banner">
       <div class="container">
         <div class="col col-1-1">
-          <a href="http://www.fool.com" class="link-white no-hover" aria-label="Go To the Homepage">
+          <a href="http://www.fool.com" aria-label="Go To the Homepage">
             <img alt="Motley Fool Logo" src="https://g.foolcdn.com/art/fool15/bg/fool-logo.png">
           </a>
         </div>
@@ -51,7 +51,7 @@
               <aside v-if="apiArticleBureaus && !isLoading" class="articles--filter col-1-3">
                 <label for="bureau-filter">Filter by...</label>
                 <select id="bureau-filter" name="bureau-filter" @change="bureauFilterChanged">
-                  <option value="view-all">View All</option>
+                  <option value="most-recent">Most Recent</option>
                   <option v-for="bureauName in apiArticleBureaus" :value="[[ bureauNameConverted(bureauName) ]]">[[ bureauName ]]</option>
                 </select>
               </aside>

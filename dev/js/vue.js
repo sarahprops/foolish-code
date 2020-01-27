@@ -60,7 +60,7 @@ new Vue({
 
       })
       .catch(error => {
-        console.log(error)
+        console.log(error);
         this.isErrored = true;
       })
       .finally(() => this.isLoading = false);
@@ -127,13 +127,13 @@ new Vue({
       // for each article from the dom
       // show or hide based on selected value
       articlesMarkup.forEach((articleItem) => {
-        let articleDataBureau = articleItem.dataset.articleBureau;
+        let articleItemBureau = articleItem.dataset.articleBureau;
         // only want to show 5
         if (visibleCounter >= 5) {
           articleItem.style.display = 'none';
         } else {
-          // show if all or matches to be shown
-          if (selectedValue === 'view-all' || selectedValue === articleDataBureau) {
+          // show if most recent or matches to be shown
+          if (selectedValue === 'most-recent' || selectedValue === articleItemBureau) {
             // show
             articleItem.style.display = 'block';
             // if its our first two add the featured article class
